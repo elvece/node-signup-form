@@ -6,10 +6,14 @@ router.get('/', function(req, res, next) {
   res.send('<form method="post" action="/submit"><input name="email" type="email" required><input type="submit"></form>');
 });
 
-router.post('/submitl', function(req, res, next){
+router.get('/success', function(req, res){
+  res.send('Success!');
+});
+
+router.post('/submit', function(req, res, next){
   var email = req.body.email;
   console.log(email);
-
+  res.redirect('/success');
 
 });
 
